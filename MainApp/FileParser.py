@@ -35,6 +35,8 @@ class FileParser:
             frequencies_dict[user].append(self.users_submissions_dict[user] / total_submissions)
         self.result['frequencies'] = frequencies_dict
 
+        return frequencies_dict
+
     def calculateMode(self):
         dictionary = {}
 
@@ -53,6 +55,8 @@ class FileParser:
 
         self.result['modes'] = modes
 
+        return modes
+
     def calculateStandardDeviation(self):
         values = self.users_submissions_dict.values()
         mean = sum(values) / len(values)
@@ -60,6 +64,8 @@ class FileParser:
         standard_deviation = math.sqrt(variance)
 
         self.result['standard_deviation'] = standard_deviation
+
+        return standard_deviation
 
     def getResult(self):
         self.findColsIndexes()
