@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'MainApp.apps.MainappConfig',
     'corsheaders',
     'rest_framework',
+    'django_nose',
 ]
 
 MIDDLEWARE = [
@@ -131,3 +132,12 @@ CORS_ORIGIN_WHITELIST = [
 ]
 
 CSRF_TRUSTED_ORIGINS = ['http://localhost:8000/']
+
+# Use nose to run all tests
+TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
+
+# Tell nose to measure coverage on the 'foo' and 'bar' apps
+NOSE_ARGS = [
+    '--with-coverage',
+    '--cover-package=MainApp',
+]
