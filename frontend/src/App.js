@@ -89,6 +89,7 @@ class App extends Component {
                 <button
                   id="submitFile"
                   className="hidden mb-3 btn btn-success"
+                  disabled={this.state.showSpinner}
                   onClick={this.onFileUpload}
                 >
                   Качване на файл
