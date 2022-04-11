@@ -28,7 +28,7 @@ class App extends Component {
   };
 
   onFileChange = event => {
-    this.setState({ selectedFile: event.target.files[0] });
+    this.setState({ selectedFile: event.target.files[0], errorMessage: null });
   };
 
   onFileUpload = () => {
@@ -37,7 +37,7 @@ class App extends Component {
       return;
     }
 
-    this.setState({ showSpinner: true });
+    this.setState({ showSpinner: true, errorMessage: null });
 
     const formData = new FormData();
 
