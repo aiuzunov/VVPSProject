@@ -9,6 +9,22 @@ class FileParser:
         self.users_submissions_dict = {}
         self.result = {}
 
+    def max_all(self,iterable, *, key):
+        it = iter(iterable)
+        max_values = [next(it)]
+        max_key = key(max_values[0])
+
+        for x in it:
+            x_key = key(x)
+
+            if x_key > max_key:
+                max_values = [x]
+                max_key = x_key
+            elif x_key == max_key:
+                max_values.append(x)
+
+        return max_values
+
     def findColsIndexes(self):
         for index, col_name in enumerate(self.excel_table.columns):
             self.cols_dict[col_name] = index
@@ -46,12 +62,7 @@ class FileParser:
             else:
                 dictionary[self.users_submissions_dict[item]] = 1
 
-        max_times = max(dictionary, key=dictionary.get)
-
-        modes = []
-        for item in dictionary:
-            if item == max_times:
-                modes.append(item)
+        modes = self.max_all(dictionary, key=dictionary.get)
 
         self.result['modes'] = modes
 

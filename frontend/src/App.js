@@ -102,7 +102,7 @@ class App extends Component {
 
   renderFrequenciesTable = () => {
     return (
-            <table className="table">
+            <table className="table" id="freq-table">
                 <thead>
                     <tr>
                         <th className="text-center" scope="col"> ID на потребител </th>
@@ -126,18 +126,21 @@ class App extends Component {
     <div>
           <div className="nav nav-tabs">
             <span
+              id="frequency_tab"
               onClick={() => this.displayTab(1)}
               className={this.state.viewTab === 1 ? "nav-link active" : "nav-link"}
             >
               Абсолютна и относителната честота
             </span>
             <span
+              id="mode_tab"
               onClick={() => this.displayTab(2)}
               className={this.state.viewTab === 2 ? "nav-link active" : "nav-link"}
             >
               Мода
             </span>
             <span
+              id="deviation_tab"
               onClick={() => this.displayTab(3)}
               className={this.state.viewTab === 3 ? "nav-link active" : "nav-link"}
             >
@@ -156,7 +159,7 @@ class App extends Component {
 
    renderModesTable = () => {
     return (
-            <table className="table">
+            <table className="table" id="modes-table">
                 <thead>
                     <tr>
                         <th className="text-center" scope="col"> Мода </th>
@@ -172,7 +175,7 @@ class App extends Component {
 
   renderStandardDeviationTable = () => {
     return (
-            <table className="table">
+            <table className="table" id="deviation-table">
                 <thead>
                     <tr>
                         <th className="text-center" scope="col">  Стандартно отклонение </th>
