@@ -26,12 +26,16 @@ class TestDataAnalyzer(TestCase):
         self.parser.getUsersSubmissions()
 
     def testMaxLenFunc(self):
-        test_dict = {'test': 2, 'hehe': 2, 'wow': 1, 'wow': 1, 'wow': 1, 'wow': 2, 'wow': 2, 'wow': 2, 'test': 1,
-                     "nn": 1}
-        self.assertEqual(self.parser.max_all(test_dict, key=test_dict.get), ['hehe', 'wow'])
+        test_dict = {1: 2, 2: 3, 3: 5, 4: 65, 5: 65, 6: 2, 7: 2, 8: 2, 9: 44,
+                     10: 1}
+        self.assertEqual(self.parser.max_all(test_dict, key=test_dict.get), [4, 5])
 
     def testColsLen(self):
         self.assertEqual(len(self.parser.cols_dict), 5)
+
+    def testColsDict(self):
+        test_dict = {'Time': 0, 'Event context': 1, 'Component': 2, 'Event name': 3, 'Description': 4}
+        self.assertEqual(self.parser.cols_dict, test_dict);
 
     def testModeCalculation(self):
         self.assertEqual(self.parser.calculateMode(), [2, 3, 1])
